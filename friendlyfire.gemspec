@@ -9,5 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/friendlyfire.rb"]
   s.homepage    =
     'http://rubygems.org/gems/friendlyfire'
+  s.executables << 'friendlyfire'
   s.license       = 'MIT'
 end
