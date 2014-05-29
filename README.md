@@ -1,4 +1,4 @@
 FriendlyFire
 ============
 
-Friendly error messages for Ruby
+Friendly error messages for Ruby.
