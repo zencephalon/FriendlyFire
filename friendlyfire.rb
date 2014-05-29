@@ -1,8 +1,22 @@
-output = `ruby #{ARGV[0]}`
+require 'colored'
+require 'open3'
+
+puts ARGV
+cmd = "ruby #{ARGV[0]}"
+#puts output
+#puts $?.to_i
+
+output = ""
+Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+  puts "stdout is:" + stdout.read
+  output << stderr.read
+end
+
 puts output
 
 # error status returned
-if $?.to_i == 1
+if output
+  puts output.split("\n")[0].red
   # analyze output
 end
 
