@@ -1,23 +1,25 @@
 require 'colored'
 require 'open3'
 
-puts ARGV
+#puts ARGV
 cmd = "ruby #{ARGV[0]}"
 #puts output
 #puts $?.to_i
 
 output = ""
 Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
-  puts "stdout is:" + stdout.read
   output << stderr.read
 end
 
-puts output
+#puts output
 
 # error status returned
 if output
-  puts output.split("\n")[0].red
-  # analyze output
+  lines = output.lines
+  puts lines.shift.chomp.red
+  lines.each do |line|
+    puts line
+  end
 end
 
 #input = "begin\n"
