@@ -15,6 +15,10 @@ if output
   # Future, red the first line originating from a file in the same directory, ie. not in a gem
   puts lines.shift.chomp.red
   lines.each do |line|
-    puts line
+    if line =~ /from\s[^\/]/
+      puts line.chomp.red
+    else
+      puts line
+    end
   end
 end
